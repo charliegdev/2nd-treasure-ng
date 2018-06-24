@@ -1,0 +1,41 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true,
+        "jasmine": true,
+        "jquery": true
+    },
+    "extends": [
+        "airbnb-base",
+        "plugin:angular/johnpapa"
+    ],
+    "plugins": ["angular"],
+    "rules": {
+        "indent": [
+            "error",
+            4, {
+                "SwitchCase": 1
+            }
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "no-unused-vars": [
+            "error", {
+                "args": "none"
+            }
+        ],
+        "no-var": "error",
+        "prefer-const": "error",
+        "no-console": "off",
+        "eol-last": "off",
+        "func-names": 0
+    },
+    "globals": {
+        "angular": false,
+        "inject": false,
+        "_": false
+    }
+}

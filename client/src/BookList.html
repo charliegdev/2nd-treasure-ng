@@ -8,8 +8,9 @@
         <th class="three wide">Author</th>
         <th class="three wide">Genre</th>
         <th class="two wide">Price</th>
-        <th class="{{loginController.isLoggedIn ? 'three' : 'four'}} wide">ISBN</th>
-        <th class="one wide" ng-show="loginController.isLoggedIn === true">Action</th>
+        <th class="{{loginController.isLoggedIn ? 'two' : 'four'}} wide">ISBN</th>
+        <th class="one wide" ng-show="loginController.isLoggedIn">Update</th>
+        <th class="one wide" ng-show="loginController.isLoggedIn">Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -27,6 +28,9 @@
           {{book.price | currency}}
         </td>
         <td>{{book.isbn}}</td>
+        <td ng-if="loginController.isLoggedIn">
+          <button class="yellow ui button" ng-click="ctrl.updateBook(book.isbn)">Update</button>
+        </td>
         <td ng-if="loginController.isLoggedIn">
           <button class="negative ui button" ng-click="ctrl.deleteBook(book.isbn)">Delete</button>
         </td>

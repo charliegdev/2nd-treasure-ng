@@ -3,7 +3,7 @@
 angular.module('BookStore').controller('LoginController', ['$scope', function ($scope) {
   var _this = this;
 
-  this.isLoggedIn = true;
+  this.isLoggedIn = false;
   this.login = function () {
     _this.isLoggedIn = true;
   };

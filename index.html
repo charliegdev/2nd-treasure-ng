@@ -1,16 +1,55 @@
 <!Doctype html>
 <html>
-  <head>
-      <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.2/dist/semantic.min.css">
-      <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.2/dist/semantic.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
-      <script src="src/bookstore.js"></script>
-  </head>
-  <body ng-app>
+
+<head>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.2/dist/semantic.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.2/dist/semantic.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+  <script src="src/BookStore.js"></script>
+  <script src="src/BookStoreController.js"></script>
+</head>
+
+<body ng-app="BookStore" ng-cloak>
+  <div class="ui container">
     <br>
-    <div class="ui text container">
-      <h1 class="ui header">Second Treasures Bookstore</h1>
+    <h1 class="ui header center aligned">Second Treasures Bookstore</h1>
+    <br>
+    <div ng-controller="BookStoreController as ctrl">
+      <table class="ui celled padded table">
+        <thead>
+          <tr><th class="single line">Title</th>
+          <th>Author</th>
+          <th>Genre</th>
+          <th>Price</th>
+          <th>ISBN</th>
+        </tr></thead>
+        <tbody>
+          <tr ng-repeat="book in ctrl.books">
+            <td>
+              <strong>{{book.title}}</strong>
+            </td>
+            <td class="single line">
+              {{book.author}}
+            </td>
+            <td>
+              <div>{{book.genre}}</div>
+            </td>
+            <td>
+              {{book.price | currency}}
+            </td>
+            <td>{{book.isbn}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <form ng-submit="ctrl.addTodo()">
+        <input type="text" ng-model="ctrl.todoText" size="30" placeholder="add new todo here">
+        <input class="btn-primary" type="submit" value="add">
+      </form>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

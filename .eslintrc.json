@@ -14,7 +14,7 @@
     "rules": {
         "indent": [
             "error",
-            4, {
+            2, {
                 "SwitchCase": 1
             }
         ],
@@ -31,7 +31,10 @@
         "prefer-const": "error",
         "no-console": "off",
         "eol-last": "off",
-        "func-names": 0
+        "func-names": 0,
+        "angular/controller-as-vm": 0,
+        "comma-dangle": 0,
+        "no-trailing-spaces": 0
     },
     "globals": {
         "angular": false,

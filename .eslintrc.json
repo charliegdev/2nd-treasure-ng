@@ -37,7 +37,8 @@
         "no-trailing-spaces": 0,
         "arrow-parens": 0,
         "no-use-before-define": ["error", { "functions": false }],
-        "max-len": 0
+        "max-len": 0,
+        "one-var": 0
     },
     "globals": {
         "angular": false,

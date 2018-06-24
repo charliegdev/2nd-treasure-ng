@@ -4,7 +4,7 @@
         {
             "label": "watch",
             "command": "./node_modules/.bin/babel",
-            "args": ["src", "--out-dir", "dist", "-w"],
+            "args": ["client/src", "--out-dir", "client/dist", "-w"],
             "type": "shell",
             "group": { "kind": "build", "isDefault": true },
             "isBackground": true

@@ -1,39 +1,10 @@
 // Use Lodash as a utility library.
-angular.module('BookStore').controller('BookStoreController', ['$scope', function ($scope) {
+angular.module('BookStore').controller('BookStoreController', ['$scope', 'BookStoreService', function ($scope, BookStoreService) {
   // Use these sample books for front-end portion. Might move this to server when doing backend portion.
   this.isUpdateMode = false;
-  this.books = [{ 
-    isbn: '9780142424179',
-    title: 'The Fault in Our Stars',
-    author: 'John Green',
-    genre: 'Young adult fiction',
-    price: 15.05
-  }, {
-    isbn: '9780062387240',
-    title: 'Divergent',
-    author: 'Veronica Roth',
-    genre: 'Dystopian Literature',
-    price: 15.05
-  }, {
-    isbn: '9780545663267',
-    title: 'Mockingjay',
-    author: 'Suzanne Collins',
-    genre: 'Dystopian Literature',
-    price: 12.48
-  }, {
-    isbn: '9780307588371',
-    title: 'Gone Girl',
-    author: 'Gillian Flynn',
-    genre: 'Mystery',
-    price: 18.37
-  }, {
-    isbn: '9780553418026',
-    title: 'The Martian',
-    author: 'Andy Weir',
-    genre: 'Science Fiction',
-    price: 14.83
-  }];
-
+  
+  this.books = undefined; 
+  BookStoreService.getDefaultBooks().then(books => { this.books = books; }, error => { console.log(error); });
   this.addNewBook = newBook => {
     // If user try to submit without all fields filled, don't accept.
     if (isIncompleteBook(newBook)) return;
@@ -51,7 +22,7 @@ angular.module('BookStore').controller('BookStoreController', ['$scope', functio
   };
 
   this.bookUpdated = () => {
-    console.log("Book updated.");
+    console.log('Book updated.');
   };
 
   this.deleteBook = isbn => {

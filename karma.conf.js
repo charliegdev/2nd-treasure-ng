@@ -20,6 +20,7 @@ module.exports = config => {
       './node_modules/angular-animate/angular-animate.js',
       './node_modules/lodash/lodash.js',
       './client/src/BookStore.js',
+      './client/src/BookStoreService.js',
       './client/src/BookStoreController.js',
       './client/src/BookStoreController.spec.js'
     ],

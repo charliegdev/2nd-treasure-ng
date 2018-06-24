@@ -53,6 +53,8 @@ angular.module('BookStore').controller('BookStoreController', ['$scope', functio
     });
   };
 
+  this.updateBook = function (bookObj) {};
+
   this.deleteBook = function (isbn) {
     _.remove(_this.books, function (book) {
       return book.isbn === isbn;

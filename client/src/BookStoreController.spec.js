@@ -105,4 +105,58 @@ describe('BookStoreController', () => {
       expect(controller.books.length).toBe(0);
     });
   });
+
+  describe('updateBook function', () => {
+    it('update book information if isbn is a match', () => {
+      controller.books = mockBookList;
+      const modifiedBook = {
+        isbn: '9780062387240',
+        title: 'DivergentModifiedTitle',
+        author: 'Veronica Roth',
+        genre: 'Dystopian Literature',
+        price: 15.05
+      };
+
+      controller.updateBook(modifiedBook);
+      expect(controller.books[1].title).toBe('DivergentModifiedTitle');
+    });
+
+    it('refuses to update if isbn is not a match', () => {
+      controller.books = mockBookList;
+      const sameBook = {
+        isbn: '9780062387240',
+        title: 'Divergent',
+        author: 'Veronica Roth',
+        genre: 'Dystopian Literature',
+        price: 15.05
+      };
+
+      controller.updateBook(sameBook);
+      expect(controller.books).toEqual(mockBookList);
+    });
+
+    it('updates the book if only some fields are changed', () => {
+      controller.books = mockBookList;
+      const sameBook = {
+        title: 'DivergentChangedTitle2',
+      };
+
+      controller.updateBook(sameBook);
+      expect(controller.books[1].title).toEqual('DivergentChangedTitle2');
+    });
+
+    it('uses isbn as UID', () => {
+      controller.books = mockBookList;
+      const changedISBN = {
+        isbn: '9780062387241', // ISBN changed
+        title: 'Divergent',
+        author: 'Veronica Roth',
+        genre: 'Dystopian Literature',
+        price: 15.05
+      };
+
+      controller.updateBook(changedISBN);
+      expect(controller.books).toEqual(mockBookList);
+    });
+  });
 });

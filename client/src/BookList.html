@@ -15,7 +15,7 @@
     </thead>
     <tbody>
       <tr ng-repeat="book in ctrl.books" class="repeated-item">
-        <td>
+        <td ng-show="!isUpdateMode">
           <strong>{{book.title}}</strong>
         </td>
         <td class="single line">
@@ -29,7 +29,7 @@
         </td>
         <td>{{book.isbn}}</td>
         <td ng-if="loginController.isLoggedIn">
-          <button class="yellow ui button" ng-click="ctrl.updateBook(book.isbn)">Update</button>
+          <button class="yellow ui button" ng-click="ctrl.startUpdateBook()">Update</button>
         </td>
         <td ng-if="loginController.isLoggedIn">
           <button class="negative ui button" ng-click="ctrl.deleteBook(book.isbn)">Delete</button>

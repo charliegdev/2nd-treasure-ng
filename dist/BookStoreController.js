@@ -1,10 +1,11 @@
-angular.module('BookStore').controller('BookStoreController', [function () {
-  this.todos = [
-    { text: 'learn AngularJS', done: true },
-    { text: 'build an AngularJS app', done: false },
-  ];
+'use strict';
 
-  this.books = [{ 
+angular.module('BookStore').controller('BookStoreController', [function () {
+  var _this = this;
+
+  this.todos = [{ text: 'learn AngularJS', done: true }, { text: 'build an AngularJS app', done: false }];
+
+  this.books = [{
     isbn: '9780142424179',
     title: 'The Fault in Our Stars',
     author: 'John Green',
@@ -36,20 +37,18 @@ angular.module('BookStore').controller('BookStoreController', [function () {
     price: 14.83
   }];
 
-  this.addNewBook = () => {
-    this.books.push({
-      isbn: this.newBook.ISBN,
-      title: this.newBook.title,
-      author: this.newBook.author,
-      genre: this.newBook.genre,
-      price: this.newBook.price
+  this.addNewBook = function () {
+    _this.books.push({
+      isbn: _this.newBook.ISBN,
+      title: _this.newBook.title,
+      author: _this.newBook.author,
+      genre: _this.newBook.genre,
+      price: _this.newBook.price
     });
-    _.forOwn(this.newBook, (value, key) => {
-      delete this.newBook[key];
+    _.forOwn(_this.newBook, function (value, key) {
+      delete _this.newBook[key];
     });
   };
 
-  this.deleteBook = () => {
-
-  };
+  this.deleteBook = function () {};
 }]);

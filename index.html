@@ -2,13 +2,14 @@
 <html>
 
 <head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.2/dist/semantic.min.css">
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.2/dist/semantic.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.10/lodash.js" integrity="sha256-qwbDmNVLiCqkqRBpF46q5bjYH11j5cd+K+Y6D3/ja28=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.2/dist/semantic.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
-  <script src="src/BookStore.js"></script>
-  <script src="src/BookStoreController.js"></script>
+  <script src="dist/BookStore.js"></script>
+  <script src="dist/BookStoreController.js"></script>
 </head>
 
 <body ng-app="BookStore" ng-cloak>
@@ -16,14 +17,16 @@
     <br>
     <h1 class="ui header center aligned">Second Treasures Bookstore</h1>
     <br>
+    <h2 class="ui header left aligned">All Books</h2>
     <div ng-controller="BookStoreController as ctrl">
-      <table class="ui celled padded table">
+      <table class="ui celled padded table violet">
         <thead>
-          <tr><th class="single line">Title</th>
-          <th>Author</th>
-          <th>Genre</th>
-          <th>Price</th>
-          <th>ISBN</th>
+          <tr><th class="single line four wide">Title</th>
+          <th class="three wide">Author</th>
+          <th class="three wide">Genre</th>
+          <th class="two wide">Price</th>
+          <th class="three wide">ISBN</th>
+          <th class="one wide">Action</th>
         </tr></thead>
         <tbody>
           <tr ng-repeat="book in ctrl.books">
@@ -40,14 +43,42 @@
               {{book.price | currency}}
             </td>
             <td>{{book.isbn}}</td>
+            <td><button class="negative ui button">Delete</button></td>
           </tr>
         </tbody>
       </table>
 
-      <form ng-submit="ctrl.addTodo()">
-        <input type="text" ng-model="ctrl.todoText" size="30" placeholder="add new todo here">
-        <input class="btn-primary" type="submit" value="add">
-      </form>
+      <br>
+      <div class="ui form raised segment">
+        <h2 class="ui header left aligned">Add a New Book</h2>
+
+        <form ng-submit="ctrl.addNewBook()" class="fields">
+          <div class="four wide field">
+            <label>Title</label>
+            <input type="text" ng-model="ctrl.newBook.title">
+          </div>
+          <div class="three wide field">
+            <label>Author</label>
+            <input type="text" ng-model="ctrl.newBook.author">
+          </div>
+          <div class="three wide field">
+            <label>Genre</label>
+            <input type="text" ng-model="ctrl.newBook.genre">
+          </div>
+          <div class="two wide field">
+            <label>Price</label>
+            <input type="text" ng-model="ctrl.newBook.price">
+          </div>
+          <div class="two wide field">
+            <label>ISBN</label>
+            <input type="text" ng-model="ctrl.newBook.ISBN">
+          </div>
+          <div class="two wide field">
+            <label>Action</label>
+            <button class="positive ui button" type="submit">Create</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </body>

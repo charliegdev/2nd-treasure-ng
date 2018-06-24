@@ -60,5 +60,6 @@ angular.module('BookStore').controller('BookStoreController', ['$scope', functio
     return necessaryProps.some(prop => bookObj[prop] === undefined);
   }
 
-  this.testFunc = num => num * 2;
+  // for testing
+  this.isIncompleteBook = isIncompleteBook;
 }]);

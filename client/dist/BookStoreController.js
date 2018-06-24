@@ -8,8 +8,8 @@ angular.module('BookStore').controller('BookStoreController', ['$scope', 'BookSt
   this.isUpdateMode = false;
 
   this.books = undefined;
-  BookStoreService.getDefaultBooks().then(function (books) {
-    _this.books = books;
+  BookStoreService.getDefaultBooks().then(function (response) {
+    _this.books = response.data;
   }, function (error) {
     console.log(error);
   });

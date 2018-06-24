@@ -6,11 +6,6 @@ angular.module('BookStore').factory('BookStoreService', ['$http', function ($htt
     $http.post
   }
   */
-  svc.getDefaultBooks = () => {
-    return $http.get('/books').then(response => {
-      console.log(response.data);
-      return response.data;
-    }, error => error);
-  };
+  svc.getDefaultBooks = () => $http.get('/books'); 
   return svc;
 }]);

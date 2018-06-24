@@ -9,12 +9,7 @@ angular.module('BookStore').factory('BookStoreService', ['$http', function ($htt
   }
   */
   svc.getDefaultBooks = function () {
-    return $http.get('/books').then(function (response) {
-      console.log(response.data);
-      return response.data;
-    }, function (error) {
-      return error;
-    });
+    return $http.get('/books');
   };
   return svc;
 }]);

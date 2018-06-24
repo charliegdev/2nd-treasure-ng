@@ -4,7 +4,7 @@ angular.module('BookStore').controller('BookStoreController', ['$scope', 'BookSt
   this.isUpdateMode = false;
   
   this.books = undefined; 
-  BookStoreService.getDefaultBooks().then(books => { this.books = books; }, error => { console.log(error); });
+  BookStoreService.getDefaultBooks().then(response => { this.books = response.data; }, error => { console.log(error); });
   this.addNewBook = newBook => {
     // If user try to submit without all fields filled, don't accept.
     if (isIncompleteBook(newBook)) return;

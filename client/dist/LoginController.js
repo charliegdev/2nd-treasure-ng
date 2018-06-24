@@ -1,5 +1,5 @@
 'use strict';
 
 angular.module('BookStore').controller('LoginController', [function () {
-  this.isLoggedIn = false;
+  this.isLoggedIn = true;
 }]);

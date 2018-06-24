@@ -1,0 +1,10 @@
+<div class="ui inverted segment" ng-controller="LoginController as loginController">
+  <div class="ui inverted secondary fluid menu">
+    <a class="active item right blue" ng-show="loginController.isLoggedIn">
+      Employee Login
+    </a>
+    <a class="active item right orange" ng-show="!loginController.isLoggedIn">
+      Logout
+    </a>
+  </div>
+</div>

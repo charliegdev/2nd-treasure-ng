@@ -1,6 +1,7 @@
 // Use Lodash as a utility library.
 angular.module('BookStore').controller('BookStoreController', ['$scope', function ($scope) {
   // Use these sample books for front-end portion. Might move this to server when doing backend portion.
+  this.isUpdateMode = false;
   this.books = [{ 
     isbn: '9780142424179',
     title: 'The Fault in Our Stars',
@@ -49,8 +50,8 @@ angular.module('BookStore').controller('BookStoreController', ['$scope', functio
     });
   };
 
-  this.updateBook = bookObj => {
-
+  this.bookUpdated = () => {
+    console.log("Book updated.");
   };
 
   this.deleteBook = isbn => {

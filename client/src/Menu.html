@@ -1,9 +1,9 @@
-<div class="ui inverted segment" ng-controller="LoginController as loginController">
+<div class="ui inverted segment">
   <div class="ui inverted secondary fluid menu">
-    <a class="active item right blue" ng-show="loginController.isLoggedIn">
+    <a class="active item right blue" ng-href="#here" ng-hide="loginController.isLoggedIn" ng-click="loginController.login()">
       Employee Login
     </a>
-    <a class="active item right orange" ng-show="!loginController.isLoggedIn">
+    <a class="active item right orange" ng-href="#here" ng-show="loginController.isLoggedIn" ng-click="loginController.logout()">
       Logout
     </a>
   </div>

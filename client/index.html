@@ -4,6 +4,7 @@
 <head>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.2/dist/semantic.min.css">
   <link rel="stylesheet" href="src/animation.css">
+  <link rel="stylesheet" href="src/style.css">
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.10/lodash.js" integrity="sha256-qwbDmNVLiCqkqRBpF46q5bjYH11j5cd+K+Y6D3/ja28=" crossorigin="anonymous"></script>
@@ -16,14 +17,16 @@
 </head>
 
 <body ng-app="BookStore" ng-cloak>
-  <ng-include src="'src/Menu.html'"></ng-include>
-  <div class="ui container" ng-controller="BookStoreController as ctrl">
-    <br>
-    <h1 class="ui header center aligned">Second Treasures Bookstore</h1>
-    <br>
-    <ng-include src="'src/BookList.html'"></ng-include>
-    <br>
-    <ng-include src="'src/AddNewBook.html'"></ng-include>
+  <div ng-controller="LoginController as loginController">
+    <ng-include src="'src/Menu.html'"></ng-include>
+    <div class="ui container" ng-controller="BookStoreController as ctrl">
+      <br>
+      <h1 class="ui header center aligned">Second Treasures Bookstore</h1>
+      <br>
+      <ng-include src="'src/BookList.html'"></ng-include>
+      <br>
+      <ng-include src="'src/AddNewBook.html'"></ng-include>
+    </div>
   </div>
 </body>
 

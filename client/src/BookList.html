@@ -1,38 +1,36 @@
-<div ng-controller="LoginController as loginController">
-  <h2 class="ui header left aligned">
-    All Books</h2>
-  <div>
-    <table class="ui celled padded table violet">
-      <thead>
-        <tr>
-          <th class="single line four wide">Title</th>
-          <th class="three wide">Author</th>
-          <th class="three wide">Genre</th>
-          <th class="two wide">Price</th>
-          <th class="{{loginController.isLoggedIn ? 'three' : 'four'}} wide">ISBN</th>
-          <th class="one wide" ng-if="loginController.isLoggedIn">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="book in ctrl.books" class="repeated-item">
-          <td>
-            <strong>{{book.title}}</strong>
-          </td>
-          <td class="single line">
-            {{book.author}}
-          </td>
-          <td>
-            <div>{{book.genre}}</div>
-          </td>
-          <td>
-            {{book.price | currency}}
-          </td>
-          <td>{{book.isbn}}</td>
-          <td ng-if="loginController.isLoggedIn">
-            <button class="negative ui button" ng-click="ctrl.deleteBook(book.isbn)">Delete</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<h2 class="ui header left aligned">
+  All Books</h2>
+<div>
+  <table class="ui celled padded table violet">
+    <thead>
+      <tr>
+        <th class="single line four wide">Title</th>
+        <th class="three wide">Author</th>
+        <th class="three wide">Genre</th>
+        <th class="two wide">Price</th>
+        <th class="{{loginController.isLoggedIn ? 'three' : 'four'}} wide">ISBN</th>
+        <th class="one wide" ng-show="loginController.isLoggedIn === true">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="book in ctrl.books" class="repeated-item">
+        <td>
+          <strong>{{book.title}}</strong>
+        </td>
+        <td class="single line">
+          {{book.author}}
+        </td>
+        <td>
+          <div>{{book.genre}}</div>
+        </td>
+        <td>
+          {{book.price | currency}}
+        </td>
+        <td>{{book.isbn}}</td>
+        <td ng-if="loginController.isLoggedIn">
+          <button class="negative ui button" ng-click="ctrl.deleteBook(book.isbn)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

@@ -1,10 +1,10 @@
 'use strict';
 
-angular.module('BookStore').controller('BookStoreController', [function () {
+// Use Lodash as a utility library.
+angular.module('BookStore').controller('BookStoreController', ['$scope', function ($scope) {
   var _this = this;
 
-  this.todos = [{ text: 'learn AngularJS', done: true }, { text: 'build an AngularJS app', done: false }];
-
+  // Use these sample books for front-end portion. Might move this to server when doing backend portion.
   this.books = [{
     isbn: '9780142424179',
     title: 'The Fault in Our Stars',
@@ -38,8 +38,8 @@ angular.module('BookStore').controller('BookStoreController', [function () {
   }];
 
   this.addNewBook = function () {
+    // If user try to submit without all fields filled, don't accept.
     if (isIncompleteBook(_this.newBook)) return;
-    console.log(_this.newBook);
     _this.books.push({
       isbn: _this.newBook.isbn,
       title: _this.newBook.title,
@@ -47,6 +47,7 @@ angular.module('BookStore').controller('BookStoreController', [function () {
       genre: _this.newBook.genre,
       price: _this.newBook.price
     });
+    // Reset this.newBook object, so UI doesn't show it anymore.
     _.forOwn(_this.newBook, function (value, key) {
       delete _this.newBook[key];
     });
@@ -58,6 +59,7 @@ angular.module('BookStore').controller('BookStoreController', [function () {
     });
   };
 
+  // Verify if the user has filled in every field.
   function isIncompleteBook(bookObj) {
     if (bookObj === undefined) return true;
     var necessaryProps = ['isbn', 'title', 'author', 'genre', 'price'];

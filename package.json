@@ -9,6 +9,9 @@
   "author": "Charlie Guan",
   "license": "ISC",
   "devDependencies": {
+    "angular": "^1.7.2",
+    "angular-mocks": "^1.7.2",
+    "angular-ui-router": "^1.0.18",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "babel-plugin-transform-es2015-modules-systemjs": "^6.24.1",
     "eslint": "^4.19.1",

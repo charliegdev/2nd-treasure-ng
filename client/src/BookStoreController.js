@@ -59,4 +59,6 @@ angular.module('BookStore').controller('BookStoreController', ['$scope', functio
     const necessaryProps = ['isbn', 'title', 'author', 'genre', 'price'];
     return necessaryProps.some(prop => bookObj[prop] === undefined);
   }
+
+  this.testFunc = num => num * 2;
 }]);

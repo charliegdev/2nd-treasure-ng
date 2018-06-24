@@ -38,8 +38,10 @@ angular.module('BookStore').controller('BookStoreController', [function () {
   }];
 
   this.addNewBook = function () {
+    if (isIncompleteBook(_this.newBook)) return;
+    console.log(_this.newBook);
     _this.books.push({
-      isbn: _this.newBook.ISBN,
+      isbn: _this.newBook.isbn,
       title: _this.newBook.title,
       author: _this.newBook.author,
       genre: _this.newBook.genre,
@@ -50,5 +52,17 @@ angular.module('BookStore').controller('BookStoreController', [function () {
     });
   };
 
-  this.deleteBook = function () {};
+  this.deleteBook = function (isbn) {
+    _.remove(_this.books, function (book) {
+      return book.isbn === isbn;
+    });
+  };
+
+  function isIncompleteBook(bookObj) {
+    if (bookObj === undefined) return true;
+    var necessaryProps = ['isbn', 'title', 'author', 'genre', 'price'];
+    return necessaryProps.some(function (prop) {
+      return bookObj[prop] === undefined;
+    });
+  }
 }]);

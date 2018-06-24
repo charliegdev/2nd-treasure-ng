@@ -34,7 +34,9 @@
         "func-names": 0,
         "angular/controller-as-vm": 0,
         "comma-dangle": 0,
-        "no-trailing-spaces": 0
+        "no-trailing-spaces": 0,
+        "arrow-parens": 0,
+        "no-use-before-define": ["error", { "functions": false }]
     },
     "globals": {
         "angular": false,

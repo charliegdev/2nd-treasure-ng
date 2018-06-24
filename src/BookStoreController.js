@@ -37,8 +37,10 @@ angular.module('BookStore').controller('BookStoreController', [function () {
   }];
 
   this.addNewBook = () => {
+    if (isIncompleteBook(this.newBook)) return;
+    console.log(this.newBook);
     this.books.push({
-      isbn: this.newBook.ISBN,
+      isbn: this.newBook.isbn,
       title: this.newBook.title,
       author: this.newBook.author,
       genre: this.newBook.genre,
@@ -49,7 +51,13 @@ angular.module('BookStore').controller('BookStoreController', [function () {
     });
   };
 
-  this.deleteBook = () => {
-
+  this.deleteBook = isbn => {
+    _.remove(this.books, book => book.isbn === isbn);
   };
+
+  function isIncompleteBook(bookObj) {
+    if (bookObj === undefined) return true;
+    const necessaryProps = ['isbn', 'title', 'author', 'genre', 'price'];
+    return necessaryProps.some(prop => bookObj[prop] === undefined);
+  }
 }]);

@@ -1,1 +1,1 @@
-angular.module('BookStore', []);
+angular.module('BookStore', ['ngAnimate']);

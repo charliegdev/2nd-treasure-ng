@@ -4,26 +4,26 @@
     <div class="sub header">All fields are required</div>
   </h2>
 
-  <form ng-submit="ctrl.addNewBook()" class="fields">
+  <form ng-submit="ctrl.addNewBook(newBook)" class="fields" ng-model="newBook">
     <div class="four wide field required">
       <label>Title</label>
-      <input type="text" ng-model="ctrl.newBook.title">
+      <input type="text" ng-model="newBook.title">
     </div>
     <div class="three wide field required">
       <label>Author</label>
-      <input type="text" ng-model="ctrl.newBook.author">
+      <input type="text" ng-model="newBook.author">
     </div>
     <div class="three wide field required">
       <label>Genre</label>
-      <input type="text" ng-model="ctrl.newBook.genre">
+      <input type="text" ng-model="newBook.genre">
     </div>
     <div class="two wide field required">
       <label>Price</label>
-      <input type="text" ng-model="ctrl.newBook.price">
+      <input type="text" ng-model="newBook.price">
     </div>
     <div class="two wide field required">
       <label>ISBN</label>
-      <input type="text" ng-model="ctrl.newBook.isbn">
+      <input type="text" ng-model="newBook.isbn">
     </div>
     <div class="two wide field">
       <label>Action</label>

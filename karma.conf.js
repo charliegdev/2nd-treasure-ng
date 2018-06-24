@@ -18,6 +18,7 @@ module.exports = config => {
       './node_modules/angular/angular.js', 
       './node_modules/angular-mocks/angular-mocks.js',
       './node_modules/angular-animate/angular-animate.js',
+      './node_modules/lodash/lodash.js',
       './client/src/BookStore.js',
       './client/src/BookStoreController.js',
       './client/src/BookStoreController.spec.js'

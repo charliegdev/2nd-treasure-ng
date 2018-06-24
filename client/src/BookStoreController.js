@@ -33,19 +33,19 @@ angular.module('BookStore').controller('BookStoreController', ['$scope', functio
     price: 14.83
   }];
 
-  this.addNewBook = () => {
+  this.addNewBook = newBook => {
     // If user try to submit without all fields filled, don't accept.
-    if (isIncompleteBook(this.newBook)) return;
+    if (isIncompleteBook(newBook)) return;
     this.books.push({
-      isbn: this.newBook.isbn,
-      title: this.newBook.title,
-      author: this.newBook.author,
-      genre: this.newBook.genre,
-      price: this.newBook.price
+      isbn: newBook.isbn,
+      title: newBook.title,
+      author: newBook.author,
+      genre: newBook.genre,
+      price: newBook.price
     });
     // Reset this.newBook object, so UI doesn't show it anymore.
-    _.forOwn(this.newBook, (value, key) => {
-      delete this.newBook[key];
+    _.forOwn(newBook, (value, key) => {
+      delete newBook[key];
     });
   };
 

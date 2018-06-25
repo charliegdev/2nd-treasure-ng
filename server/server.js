@@ -88,7 +88,6 @@ app.put('/updateBook', ({ body }, res) => {
       Object.assign(book, body);
     }
   });
-  console.log(books);
   res.send('Book updated.');
 });
 

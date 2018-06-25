@@ -2,6 +2,17 @@
 
 This is a simple CRUD appliation for a mock company, *Second Treasures BookStore*, done using AngularJS.
 
+## See It in Action
+View the live version of this application and interact with it on this [Amazon EC2 instance](http://34.218.245.204:8080)!
+
+You can also run this fullstack JavaScript application on your own local machine. Follow these steps:
+
+1. If you haven't installed NodeJS on your machine, download it from [here](https://nodejs.org/en/download/) and install it.
+1. `git clone https://github.com/charliegdev/2nd-treasure-ng.git`
+1. `cd 2nd-treasure-ng`
+1. `npm install`
+1. `node server/server.js`
+
 ## Supported Functionalities
 Since this is a CRUD application, the typical operations are all supported:
 
@@ -22,7 +33,7 @@ Due to time constrain, here are 2 things that couldn't be implemented for now:
 ## Tech Stack
 * **Front-end**: AngularJS, Semantic UI, Jasmine, ES6
 * **Back-end**: NodeJS, Express
-* **Tools**: Babel, npm, ESLint, Karam, VS Code
+* **Tools**: Babel, npm, ESLint, Karma, VS Code, Amazon EC2, PuTTY, TMux
 
 ---
 

@@ -16,28 +16,38 @@ angular.module('BookStore').controller('BookStoreController', ['$scope', 'BookSt
   this.addNewBook = function (newBook) {
     // If user try to submit without all fields filled, don't accept.
     if (isIncompleteBook(newBook)) return;
-    _this.books.push({
-      isbn: newBook.isbn,
-      title: newBook.title,
-      author: newBook.author,
-      genre: newBook.genre,
-      price: newBook.price
-    });
-    BookStoreService.addNewBook(Object.assign({}, newBook));
-    // Reset this.newBook object, so UI doesn't show it anymore.
-    _.forOwn(newBook, function (value, key) {
-      delete newBook[key];
+    BookStoreService.addNewBook(Object.assign({}, newBook)).then(function (response) {
+      _this.books.push({
+        isbn: newBook.isbn,
+        title: newBook.title,
+        author: newBook.author,
+        genre: newBook.genre,
+        price: newBook.price,
+        uuid: response.data
+      });
+      // Reset this.newBook object, so UI doesn't show it anymore.
+      _.forOwn(newBook, function (value, key) {
+        delete newBook[key];
+      });
+    }, function (error) {
+      console.error(error);
     });
   };
 
-  this.bookUpdated = function () {
-    console.log('Book updated.');
+  // The reason we're 
+  this.bookUpdated = function (uuid) {
+    var updatedBook = _this.books.find(function (book) {
+      return book.uuid === uuid;
+    });
+    console.log(updatedBook);
+    BookStoreService.updateAllBooks(updatedBook);
   };
 
   this.deleteBook = function (isbn) {
     _.remove(_this.books, function (book) {
       return book.isbn === isbn;
     });
+    BookStoreService.deleteBook(isbn);
   };
 
   // Verify if the user has filled in every field.

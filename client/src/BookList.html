@@ -14,7 +14,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="book in ctrl.books" class="repeated-item">
+      <tr ng-repeat="book in ctrl.books track by book.uuid" class="repeated-item">
         <td>
           <strong ng-hide="book.isUpdateMode">{{book.title}}</strong>
           <div class="ui input mini" ng-show="book.isUpdateMode">
@@ -47,7 +47,7 @@
         </td>
         <td ng-if="loginController.isLoggedIn">
           <button class="yellow ui button" ng-click="book.isUpdateMode = true" ng-hide="book.isUpdateMode">Update</button>
-          <button class="green ui button" ng-click="book.isUpdateMode = false; ctrl.bookUpdated()" ng-show="book.isUpdateMode">Finish</button>
+          <button class="green ui button" ng-click="book.isUpdateMode = false; ctrl.bookUpdated(book.uuid)" ng-show="book.isUpdateMode">Finish</button>
         </td>
         <td ng-if="loginController.isLoggedIn">
           <button class="negative ui button" ng-click="ctrl.deleteBook(book.isbn)">Delete</button>

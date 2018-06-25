@@ -83,7 +83,6 @@ app.delete('/deleteBook/:isbn', (req, res) => {
 
 app.put('/updateBook', ({ body }, res) => {
   const { uuid } = body;
-  console.log(uuid);
   books.forEach(book => {
     if (book.uuid === uuid) {
       Object.assign(book, body);

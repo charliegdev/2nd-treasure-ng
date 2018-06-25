@@ -29,7 +29,6 @@ angular.module('BookStore').controller('BookStoreController', ['$scope', 'BookSt
   // The reason we're 
   this.bookUpdated = uuid => {
     const updatedBook = this.books.find(book => book.uuid === uuid);
-    console.log(updatedBook);
     BookStoreService.updateAllBooks(updatedBook);
   };
 

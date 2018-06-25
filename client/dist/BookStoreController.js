@@ -39,7 +39,6 @@ angular.module('BookStore').controller('BookStoreController', ['$scope', 'BookSt
     var updatedBook = _this.books.find(function (book) {
       return book.uuid === uuid;
     });
-    console.log(updatedBook);
     BookStoreService.updateAllBooks(updatedBook);
   };
 

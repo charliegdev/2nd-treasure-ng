@@ -50,7 +50,7 @@
           <button class="green ui button" ng-click="book.isUpdateMode = false; ctrl.bookUpdated(book.uuid)" ng-show="book.isUpdateMode">Finish</button>
         </td>
         <td ng-if="loginController.isLoggedIn">
-          <button class="negative ui button" ng-click="ctrl.deleteBook(book.isbn)">Delete</button>
+          <button class="negative ui button" ng-click="ctrl.deleteBook(book.uuid)">Delete</button>
         </td>
       </tr>
     </tbody>

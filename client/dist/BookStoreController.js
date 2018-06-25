@@ -42,11 +42,11 @@ angular.module('BookStore').controller('BookStoreController', ['$scope', 'BookSt
     BookStoreService.updateAllBooks(updatedBook);
   };
 
-  this.deleteBook = function (isbn) {
+  this.deleteBook = function (uuid) {
     _.remove(_this.books, function (book) {
-      return book.isbn === isbn;
+      return book.uuid === uuid;
     });
-    BookStoreService.deleteBook(isbn);
+    BookStoreService.deleteBook(uuid);
   };
 
   // Verify if the user has filled in every field.

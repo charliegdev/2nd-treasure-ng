@@ -75,9 +75,9 @@ app.post('/addNewBook', (req, res) => {
   res.send(newBookEntry.uuid);
 });
 
-app.delete('/deleteBook/:isbn', (req, res) => {
-  const unwantedISBN = req.params.isbn;
-  _.remove(books, book => book.isbn === unwantedISBN);
+app.delete('/deleteBook/:uuid', (req, res) => {
+  const unwantedUUID = req.params.uuid;
+  _.remove(books, book => book.uuid === unwantedUUID);
   res.send('Deleted specified book.');
 });
 
@@ -88,6 +88,7 @@ app.put('/updateBook', ({ body }, res) => {
       Object.assign(book, body);
     }
   });
+  console.log(books);
   res.send('Book updated.');
 });
 

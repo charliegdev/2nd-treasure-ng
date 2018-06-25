@@ -59,6 +59,10 @@ app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '..', '/client')));
 
 app.get('/books', (req, res) => { res.send(books); });
+app.post('/addNewBook', (req, res) => {
+  books.push(req.body);
+  res.send('Got a new book.');
+});
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'client', 'index.html'));

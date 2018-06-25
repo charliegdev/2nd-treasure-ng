@@ -11,5 +11,8 @@ angular.module('BookStore').factory('BookStoreService', ['$http', function ($htt
   svc.getDefaultBooks = function () {
     return $http.get('/books');
   };
+  svc.addNewBook = function (newBook) {
+    return $http.post('/addNewBook', newBook);
+  };
   return svc;
 }]);

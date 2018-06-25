@@ -15,6 +15,7 @@ angular.module('BookStore').controller('BookStoreController', ['$scope', 'BookSt
       genre: newBook.genre,
       price: newBook.price
     });
+    BookStoreService.addNewBook(Object.assign({}, newBook));    
     // Reset this.newBook object, so UI doesn't show it anymore.
     _.forOwn(newBook, (value, key) => {
       delete newBook[key];
